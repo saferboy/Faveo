@@ -1,0 +1,38 @@
+{
+  "name": "faveo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node out/server.js",
+    "build": "tsc",
+    "dev": "nodemon src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "_moduleAliases": {
+    "@config": "lib/config",
+    "@controller": "lib/controller",
+    "@middleware": "lib/middleware",
+    "@model": "lib/model",
+    "@api": "lib/api",
+    "@service": "lib/service",
+    "@utils": "lib/utils"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^4.14.1",
+    "@types/express": "^4.17.17",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "prisma": "^4.14.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/module-alias": "^2.0.1",
+    "module-alias": "^2.2.2",
+    "tsconfig-paths": "^4.2.0"
+  }
+}

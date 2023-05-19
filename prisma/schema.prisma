@@ -1,0 +1,84 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int     @id @default(autoincrement())
+  username String
+  email    String
+  password String
+  name     String
+  surname  String
+  birthday String
+  phone    Phone[]
+  role     Role
+}
+
+model Verification {
+  id        Int      @id @default(autoincrement())
+  code      String
+  email     String
+  createdAt DateTime @default(now())
+}
+
+model Phone {
+  id     Int    @id @default(autoincrement())
+  phone  String
+  User   User   @relation(fields: [userId], references: [id])
+  userId Int
+}
+
+model Info {
+  id               Int    @id @default(autoincrement())
+  name             String
+  location_geo     String
+  location_address String
+}
+
+model Product {
+  id         Int      @id @default(autoincrement())
+  name       String
+  price      String
+  image      String
+  categoryId Categroy @relation(fields: [categroyId], references: [id])
+  categroyId Int
+  Basket     Basket   @relation(fields: [basketId], references: [id])
+  basketId   Int
+}
+
+model Categroy {
+  id      Int       @id @default(autoincrement())
+  name    String
+  icon    String
+  Product Product[]
+}
+
+model Order {
+  id            Int      @id @default(autoincrement())
+  address       String
+  phone         String
+  name          String
+  purchase_type String
+  created       DateTime @default(now())
+  Basket        Basket[]
+}
+
+model Basket {
+  id         Int       @id @default(autoincrement())
+  order_id   Order     @relation(fields: [orderId], references: [id])
+  orderId    Int
+  product_id Product[]
+}
+
+enum Role {
+  user
+  admin
+}
