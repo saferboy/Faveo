@@ -27,6 +27,12 @@
       ],
       "@schema/*": [
         "./src/*"
+      ],
+      "@config/*":[
+        "./config/*"
+      ],
+      "@utils/*":[
+        "./utils/*"
       ]
     },
     "sourceMap": true,
