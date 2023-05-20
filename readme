@@ -1,2 +1,9 @@
 proyekt bitgandan keyin terminalda tsc - buyruqi beriladi shunda typescript javascriptga kompilatsiy bo'ladi.
 project server yuklangandan keyin server terminalida node out/server.js zaprosi yuboriladi
+/////////////////////////////////////////////
+nodemailer yangi login nastroyka etish karak
+.env dagi email_password ga nodemailerdagi tozo parolni yozish karak
+
+auth fayldagi password ga etiborli bolish karak
+
+payload dagi dannilarni kamaytirish karak!!!

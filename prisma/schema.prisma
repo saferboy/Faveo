@@ -79,4 +79,5 @@ model Basket {
 enum role {
   user
   admin
+  none
 }

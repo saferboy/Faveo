@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from "express";
 import { getTimeOut, generateCode } from "@utils/generateCode";
-
 import { UserDto } from "@model/user.dto";
 import { VERIFICATION_TIMEOUT } from "@config/verification"
 import { cleanVerification, createUser, createVerification, excistUser, sendEmail } from "@service/index";
@@ -36,10 +35,10 @@ export default async (req: Request, res: Response, next: NextFunction) => {
         console.log('Deleted verification', deleteCount)
 
         res.status(200).json({
-            message:        'Verification code sended to email',
-            email:          newUser.email,
+            message: 'Verification code sended to email',
+            email: newUser.email,
             verificationId: verification.id,
-            timeOut:        getTimeOut(verification.createdAt, VERIFICATION_TIMEOUT)
+            timeOut: getTimeOut(verification.createdAt, VERIFICATION_TIMEOUT)
         })
 
     } catch (error) {
