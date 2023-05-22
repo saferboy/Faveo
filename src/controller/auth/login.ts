@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-import { findUserByEmail } from "@service/auth/login.service";
+import { findUserByEmail } from "@service/user.service";
 import { LoginDto } from "@model/index"
-    ;
+    
 import { Payload } from "@model/index";
 import { sign } from "@service/jwt.service";
 import bcrypt from "bcrypt";
@@ -34,8 +34,6 @@ export default async (req: Request, res: Response, next: NextFunction) => {
                 name: user.name,
                 surname: user.surname,
                 username: user.username,
-                birthday: user.birthday,
-                phone: user.phone,
                 role: user.role
             };
 
