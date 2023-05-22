@@ -2,7 +2,7 @@ import { Router } from "express";
 
 // v1 imports
 import authRoutes from "./auth"
-// import usersRoutes from "./users" 
+import usersRoutes from "./users" 
 // import infoRoutes from "./info"
 // import category  from "./category"
 // import products  from "./products"
@@ -11,8 +11,8 @@ import authRoutes from "./auth"
 const router = Router()
 
 .use('/auth',     authRoutes)
+.use('/users',    usersRoutes)
 // .use('/info',     infoRoutes)
-// .use('/users',    usersRoutes)
 // .use('/category', category)
 // .use('/products', products)
 // .use('/orders', orders)

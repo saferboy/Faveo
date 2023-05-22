@@ -53,3 +53,8 @@ export const findUserByEmail = async (email: string) => {
     }
   })
 }
+
+
+export const allUser = async () => {
+  return prisma.user.findMany()
+}
