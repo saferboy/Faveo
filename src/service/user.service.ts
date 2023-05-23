@@ -1,4 +1,4 @@
-import { UserDto, UserDetail } from "@model/user.dto";
+import { UserDto, UserDetail, AccessDetail } from "@model/user.dto";
 import { PrismaClient, role } from "@prisma/client";
 import bcrypt from "bcrypt";
 
@@ -77,6 +77,19 @@ export const updateUserDetails = async (user: UserDetail, id: number) => {
       surname: user.surname,
       birthday: user.birthday,
       phone: user.phone
+    },
+    where: {
+      id
+    }
+  })
+}
+
+
+export const updateUserAccess = async (id: number, access: AccessDetail) => {
+  return prisma.user.update({
+    data: {
+      password: access.password,
+      role: access.role
     },
     where: {
       id

@@ -16,3 +16,8 @@ export interface UserDetail {
     birthday: string,
     phone: string
 }
+
+export interface AccessDetail {
+    password: string,
+    role: string 
+}

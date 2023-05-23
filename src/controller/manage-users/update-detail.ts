@@ -20,7 +20,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
         return res.status(201).json({
             message: 'User info updated',
             id: newUser.id,
-            email: newUser.email,
+            email: oldUser.email,
             name: newUser.name,
             surname: newUser.surname,
             birthday: newUser.birthday,
