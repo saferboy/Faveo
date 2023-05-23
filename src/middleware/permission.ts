@@ -5,7 +5,7 @@ export const permission = (role: boolean) => {
     return async (req: Request, res: Response, next: NextFunction) => {
         const token = req.header("authorization")
 
-        console.log(token)
+        // console.log(token)
 
         if (!token) {
             return res.status(401).json({
@@ -16,8 +16,10 @@ export const permission = (role: boolean) => {
         try {
 
             let payload = await verify(token);
+            console.log(payload.role)
+            console.log(role)
 
-            if (!role) {
+            if (role) {
                 if (payload.role !== "admin") {
                     return res.status(401).json({
                         message: "Acces Denied",
@@ -31,7 +33,7 @@ export const permission = (role: boolean) => {
             //     });
             // }
 
-            // if (payload.role !== role) {
+            // if (payload.role !== "admin") {
             //     return res.status(401).json({
             //         message: "Acces Denied",
             //     })

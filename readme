@@ -7,3 +7,24 @@ nodemailer yangi login nastroyka etish karak
 auth fayldagi password ga etiborli bolish karak
 
 payload dagi dannilarni kamaytirish karak!!!
+
+
+agar role = admin bolib
+permission(false) bolsa
+status 200
+
+agar role = admin bo'lib
+permission(true) bo'lsa
+acces denied
+
+////////////////
+
+agar role = user bo'lib
+permission(false) bo'lsa 
+status200
+
+agar role = user bo'lib
+permission(true) bo'lsa
+acces denied
+
+# +99870 9832882

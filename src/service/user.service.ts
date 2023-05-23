@@ -55,6 +55,26 @@ export const findUserByEmail = async (email: string) => {
 }
 
 
+export const findUserById = async (id: number) => {
+  return prisma.user.findUnique({
+    where: {
+      id
+    }
+  })
+}
+
+
 export const allUser = async () => {
   return prisma.user.findMany()
+}
+
+
+
+
+export const removeUser = async (id: number) => {
+  return prisma.user.delete({
+    where: {
+      id
+    }
+  })
 }

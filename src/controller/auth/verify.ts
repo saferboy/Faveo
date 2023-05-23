@@ -46,8 +46,6 @@ export default async (req: Request, res: Response, next: NextFunction) => {
         const payload: Payload = {
             userId: user.id,
             email: user.email,
-            name: user.name,
-            surname: user.surname,
             username: user.username,
             role: user.role
         }
