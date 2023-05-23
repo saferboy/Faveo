@@ -1,4 +1,4 @@
-import { UserDto } from "@model/user.dto";
+import { UserDto, UserDetail } from "@model/user.dto";
 import { PrismaClient, role } from "@prisma/client";
 import bcrypt from "bcrypt";
 
@@ -47,7 +47,7 @@ export const verifiedUser = async (userId: number, role: role) => {
 
 
 export const findUserByEmail = async (email: string) => {
-  return prisma.user.findUnique({
+  return prisma.user.findFirst({
     where: {
       email
     }
@@ -69,6 +69,20 @@ export const allUser = async () => {
 }
 
 
+export const updateUserDetails = async (user: UserDetail, id: number) => {
+  return prisma.user.update({
+    data: {
+      email: user.email,
+      name: user.name,
+      surname: user.surname,
+      birthday: user.birthday,
+      phone: user.phone
+    },
+    where: {
+      id
+    }
+  })
+}
 
 
 export const removeUser = async (id: number) => {

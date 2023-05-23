@@ -7,3 +7,12 @@ export interface UserDto {
     birthday: string,
     phone: string,
 }
+
+
+export interface UserDetail {
+    email: string,
+    name: string,
+    surname: string,
+    birthday: string,
+    phone: string
+}

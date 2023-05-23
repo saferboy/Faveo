@@ -2,17 +2,17 @@ import { Router } from "express";
 
 import allUsers from "@controller/manage-users/all-users";
 import deleteUsers from "@controller/manage-users/deleteUser";
-// import updateUserDetails from "../../controllers/manageUser/updateDetails";
+import updateUserDetails from "@controller/manage-users/update-detail";
 // import updateAccess from "../../controllers/manageUser/updateAccess";
-import { permission } from "@middleware/permission";
+import permission from "@middleware/permission";
 
 const router = Router()
 
     // .use(permission('user'))
 
-    .get('/', permission(true), allUsers)
-    .delete('/:id', deleteUsers)
-// .put('/:id/details', updateUserDetails)
+    .get('/', permission('admin'), allUsers)
+    .delete('/:id', permission('user'), deleteUsers)
+    .put('/:id/details',permission('user'), updateUserDetails)
 // .put('/:id/access', updateAccess)
 
 export default router
