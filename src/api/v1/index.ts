@@ -4,7 +4,7 @@ import { Router } from "express";
 import authRoutes from "./auth"
 import usersRoutes from "./users" 
 // import infoRoutes from "./info"
-// import category  from "./category"
+import category  from "./category"
 // import products  from "./products"
 // import orders   from "./orders"
 
@@ -13,7 +13,7 @@ const router = Router()
 .use('/auth',     authRoutes)
 .use('/users',    usersRoutes)
 // .use('/info',     infoRoutes)
-// .use('/category', category)
+.use('/categories', category)
 // .use('/products', products)
 // .use('/orders', orders)
 

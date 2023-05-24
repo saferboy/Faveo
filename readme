@@ -1,30 +1,36 @@
-proyekt bitgandan keyin terminalda tsc - buyruqi beriladi shunda typescript javascriptga kompilatsiy bo'ladi.
-project server yuklangandan keyin server terminalida node out/server.js zaprosi yuboriladi
-/////////////////////////////////////////////
-nodemailer yangi login nastroyka etish karak
-.env dagi email_password ga nodemailerdagi tozo parolni yozish karak
+// proyekt bitgandan keyin terminalda tsc - buyruqi beriladi shunda typescript javascriptga kompilatsiy bo'ladi.
+// project server yuklangandan keyin server terminalida node out/server.js zaprosi yuboriladi
+// /////////////////////////////////////////////
+// nodemailer yangi login nastroyka etish karak
+// .env dagi email_password ga nodemailerdagi tozo parolni yozish karak
 
-auth fayldagi password ga etiborli bolish karak
+// auth fayldagi password ga etiborli bolish karak
 
-payload dagi dannilarni kamaytirish karak!!!
+// payload dagi dannilarni kamaytirish karak!!!
 
 
-agar role = admin bolib
-permission(false) bolsa
-status 200
+// agar role = admin bolib
+// permission(false) bolsa
+// status 200
 
-agar role = admin bo'lib
-permission(true) bo'lsa
-acces denied
+// agar role = admin bo'lib
+// permission(true) bo'lsa
+// acces denied
 
-////////////////
+// ////////////////
 
-agar role = user bo'lib
-permission(false) bo'lsa 
-status200
+// agar role = user bo'lib
+// permission(false) bo'lsa 
+// status200
 
-agar role = user bo'lib
-permission(true) bo'lsa
-acces denied
+// agar role = user bo'lib
+// permission(true) bo'lsa
+// acces denied
 
-# +99870 9832882
+//////////////////////
+
+// user.role password update qilish eski tokenni remove qilib yangi token generatsiya qilish karak
+
+// jwt tokenni boshqattan ko;rib chiqish karak
+
+
