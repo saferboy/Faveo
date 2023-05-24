@@ -46,13 +46,13 @@ model Product {
   name       String
   price      String
   image      String
-  categoryId Categroy @relation(fields: [categroyId], references: [id])
+  categoryId Category @relation(fields: [categroyId], references: [id])
   categroyId Int
   Basket     Basket   @relation(fields: [basketId], references: [id])
   basketId   Int
 }
 
-model Categroy {
+model Category {
   id      Int       @id @default(autoincrement())
   name    String
   icon    String
