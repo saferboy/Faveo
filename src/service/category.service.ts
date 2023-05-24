@@ -19,3 +19,18 @@ export const findCategoryByname = async (name: string) => {
         }
     })
 }
+
+
+export const findCategoryById = async (id: number) => {
+    return prisma.categroy.findUnique({
+        where: {
+            id
+        }
+    })
+}
+
+
+export const allCategory = async () => {
+    return prisma.categroy.findMany()
+}
+
