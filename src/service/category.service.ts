@@ -53,52 +53,52 @@ export const removeCategory = async (id: number) => {
 
 
 
-// // export const updaCategory = async (id: number, name: string, icon: string) => {
-// //     return prisma.category.update({
-// //         where: {
-// //             id
-// //         },
-// //         data: {
-// //             name,
-// //             icon
-// //         }
-// //     })
-// // }
-
-
-
-export const updateCategoryWithFile = async (id: number, name: string, iconFilePath: string) => {
-    try {
-        const oldCategory = await prisma.category.findUnique({
-            where: {
-                id
-            },
-        });
-
-        if (oldCategory) {
-            const oldIconFilePath = `path/to/directory/${oldCategory.icon}`;
-            await fsPromises.unlink(oldIconFilePath);
+export const updaCategory = async (id: number, name: string, icon: string) => {
+    return prisma.category.update({
+        where: {
+            id
+        },
+        data: {
+            name,
+            icon
         }
+    })
+}
 
-        const newIconFileName = `new_icon_${Date.now()}.png`;
-        const newIconFilePath = `path/to/directory/${newIconFileName}`;
 
-        await fsPromises.copyFile(iconFilePath, newIconFilePath);
 
-        const updatedCategory = await prisma.category.update({
-            where: {
-                id,
-            },
-            data: {
-                name,
-                icon: newIconFileName,
-            },
-        });
+// export const updateCategoryWithFile = async (id: number, name: string, iconFilePath: string) => {
+//     try {
+//         const oldCategory = await prisma.category.findUnique({
+//             where: {
+//                 id
+//             },
+//         });
 
-        return updatedCategory;
-    } catch (error) {
-        console.error(error);
-    }
-};
+//         if (oldCategory) {
+//             const oldIconFilePath = `path/to/directory/${oldCategory.icon}`;
+//             await fsPromises.unlink(oldIconFilePath);
+//         }
+
+//         const newIconFileName = `new_icon_${Date.now()}.png`;
+//         const newIconFilePath = `path/to/directory/${newIconFileName}`;
+
+//         await fsPromises.copyFile(iconFilePath, newIconFilePath);
+
+//         const updatedCategory = await prisma.category.update({
+//             where: {
+//                 id,
+//             },
+//             data: {
+//                 name,
+//                 icon: newIconFileName,
+//             },
+//         });
+
+//         return updatedCategory;
+//     } catch (error) {
+//         console.error(error);
+//     }
+// };
 
 

@@ -18,3 +18,5 @@ const router = Router()
     .delete('/:id', permission('admin'), deleteCategory)
 
 export default router
+
+

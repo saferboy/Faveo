@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { updateCategoryWithFile, findCategoryById } from "@service/category.service";
+import { updaCategory, findCategoryById } from "@service/category.service";
 
 
 export default async (req: Request, res: Response, next: NextFunction) => {
@@ -23,7 +23,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 
         const icon = req.file.filename
 
-        const newCtg = await updateCategoryWithFile(id, name, icon)
+        const newCtg = await updaCategory(id, name, icon)
         
         return res.status(201).json({
             message: "Category updated",
