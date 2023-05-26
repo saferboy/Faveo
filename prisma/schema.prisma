@@ -13,7 +13,7 @@ datasource db {
 model User {
   id       Int    @id @default(autoincrement())
   username String
-  email    String 
+  email    String
   password String
   name     String
   surname  String
@@ -23,23 +23,21 @@ model User {
 }
 
 model Verification {
-  id        String @unique
+  id        String   @unique
   code      String
   email     String
   createdAt DateTime @default(now())
 }
 
-model Phone {
-  id    Int    @id @default(autoincrement())
-  phone String
-}
 
 model Info {
-  id               Int    @id @default(autoincrement())
+  id               Int     @id @default(autoincrement())
   name             String
   location_geo     String
   location_address String
+  phones String[]
 }
+
 
 model Product {
   id         Int      @id @default(autoincrement())
