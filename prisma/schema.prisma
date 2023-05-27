@@ -29,25 +29,23 @@ model Verification {
   createdAt DateTime @default(now())
 }
 
-
 model Info {
-  id               Int     @id @default(autoincrement())
+  id               Int      @id @default(autoincrement())
   name             String
   location_geo     String
   location_address String
-  phones String[]
+  phones           String[]
 }
-
 
 model Product {
   id         Int      @id @default(autoincrement())
   name       String
   price      String
   image      String
-  categoryId Category @relation(fields: [categroyId], references: [id])
-  categroyId Int
-  Basket     Basket   @relation(fields: [basketId], references: [id])
-  basketId   Int
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+  // Basket     Basket   @relation(fields: [basketId], references: [id])
+  // basketId   Int
 }
 
 model Category {
@@ -71,7 +69,7 @@ model Basket {
   id         Int       @id @default(autoincrement())
   order_id   Order     @relation(fields: [orderId], references: [id])
   orderId    Int
-  product_id Product[]
+  // product_id Product[]
 }
 
 enum role {
