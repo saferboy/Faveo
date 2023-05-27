@@ -17,7 +17,7 @@ export const createAppInfo = async (info: AppInfo) => {
 
 
 export const allInfo = async () => {
-    return prisma.info.findMany()
+    return prisma.info.findFirst()
 }
 
 export const updateAppInfo = async (info: AppInfo, id: number) => {

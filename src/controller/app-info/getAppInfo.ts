@@ -6,15 +6,16 @@ export default async (req: Request, res: Response, next: NextFunction) => {
         let info = await allInfo();
         console.log(info)
 
-        if (info.length) {
-            const mapped = info.map(inf => {
-                return {
-                    name: inf.name,
-                    location_geo: inf.location_geo,
-                    location_address: inf.location_address,
-                    phones: inf.phones
-                }
-            })
+        if (info) {
+            const mapped =  {
+                
+                    id: info.id,
+                    name: info.name,
+                    location_geo: info.location_geo,
+                    location_address: info.location_address,
+                    phones: info.phones
+                
+            }
 
             return res.status(201).json({
                 message: "Application info retrived",
@@ -22,7 +23,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
             });
         }
 
-        if (!info.length) {
+        if (!info) {
             const newInfo = await createAppInfo({
                 name: "",
                 location_geo: "",
@@ -31,6 +32,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
             });
 
             const detail = {
+                id: newInfo.id,
                 name: newInfo.name,
                 location: {
                     geo: newInfo.location_geo,
