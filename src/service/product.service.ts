@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { ProductDto } from "@model/product.dto";
+import * as fsRegular from 'node:fs';
 
 const prisma = new PrismaClient()
 
@@ -67,5 +68,15 @@ export const updateProduct = async (id: number, product: ProductDto, image: stri
 
 
 export const removeProduct = async (id: number) => {
+    const result = await prisma.product.delete({
+        where: {
+            id
+        }
+    })
 
+    fsRegular.rm(result.image, (error) => {
+        console.log(`Category's icon deleted`)
+    })
+    return result
 }
+
