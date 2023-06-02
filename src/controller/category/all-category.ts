@@ -10,7 +10,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
             return {
                 id: option.id,
                 name: option.name,
-                icon: option.icon
+                icon: option.icon,
             }
         })
 

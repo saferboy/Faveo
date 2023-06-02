@@ -19,7 +19,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
             category: {
                 id: category.id,
                 name: category.name,
-                icon:   category.icon
+                icon:   category.icon,
             }
         })
 

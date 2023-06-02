@@ -44,8 +44,8 @@ model Product {
   image      String
   category   Category @relation(fields: [categoryId], references: [id])
   categoryId Int
-  // Basket     Basket   @relation(fields: [basketId], references: [id])
-  // basketId   Int
+  Order      Order?   @relation(fields: [orderId], references: [id])
+  orderId    Int?
 }
 
 model Category {
@@ -56,20 +56,20 @@ model Category {
 }
 
 model Order {
-  id            Int      @id @default(autoincrement())
+  id            Int       @id @default(autoincrement())
   address       String
   phone         String
   name          String
   purchase_type String
-  created       DateTime @default(now())
+  created       DateTime  @default(now())
   Basket        Basket[]
+  product       Product[]
 }
 
 model Basket {
-  id         Int       @id @default(autoincrement())
-  order_id   Order     @relation(fields: [orderId], references: [id])
-  orderId    Int
-  // product_id Product[]
+  id       Int   @id @default(autoincrement())
+  order_id Order @relation(fields: [orderId], references: [id])
+  orderId  Int
 }
 
 enum role {
