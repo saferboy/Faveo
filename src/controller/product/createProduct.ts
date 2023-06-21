@@ -11,7 +11,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
         const data: ProductDto = req.body
 
         const ctg = await findCategoryById(id)
-        if(!ctg) {
+        if (!ctg) {
             return res.status(404).json({
                 message: `Category not found this ${id}`
             })

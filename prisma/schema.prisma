@@ -37,6 +37,13 @@ model Info {
   phones           String[]
 }
 
+model Category {
+  id      Int       @id @default(autoincrement())
+  name    String
+  icon    String
+  Product Product[]
+}
+
 model Product {
   id         Int      @id @default(autoincrement())
   name       String
@@ -48,12 +55,7 @@ model Product {
   orderId    Int?
 }
 
-model Category {
-  id      Int       @id @default(autoincrement())
-  name    String
-  icon    String
-  Product Product[]
-}
+
 
 model Order {
   id            Int       @id @default(autoincrement())

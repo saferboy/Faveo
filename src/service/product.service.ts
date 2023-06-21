@@ -38,6 +38,17 @@ export const getProductByCategoryId = async (category_id: number) => {
     })
 }
 
+export const findProductByCategoryId = async (category_id: number) => {
+    return prisma.category.findUnique({
+        where: {
+            id: category_id
+        },
+        include: {
+            Product: true
+        }
+    })
+}
+
 
 export const findProductById = async (id: number) => {
     return prisma.product.findUnique({
