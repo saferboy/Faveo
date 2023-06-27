@@ -1,5 +1,5 @@
-export interface ProductDto {
-    name: string,
-    price: string,
-    image: string,
+export interface CreateProductInput {
+    name: string
+    price: string
 }
+

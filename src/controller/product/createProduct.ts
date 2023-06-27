@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { createProduct } from "@service/product.service";
-import { ProductDto } from "@model/product.dto";
+import { CreateProductInput } from "@model/product.dto";
 import { findCategoryById } from "@service/category.service";
 
 
@@ -8,7 +8,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
     try {
 
         const id = +req.params.id
-        const data: ProductDto = req.body
+        const data: CreateProductInput  = req.body
 
         const ctg = await findCategoryById(id)
         if (!ctg) {

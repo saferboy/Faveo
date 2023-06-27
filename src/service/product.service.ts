@@ -1,10 +1,10 @@
 import { PrismaClient } from "@prisma/client";
-import { ProductDto } from "@model/product.dto";
+import { CreateProductInput } from "@model/product.dto";
 import * as fsRegular from 'node:fs';
 
 const prisma = new PrismaClient()
 
-export const createProduct = async (ctgId: number, product: ProductDto, image: string) => {
+export const createProduct = async (ctgId: number, product: CreateProductInput, image: string) => {
     return prisma.product.create({
         data: {
             name: product.name,
@@ -38,6 +38,7 @@ export const getProductByCategoryId = async (category_id: number) => {
     })
 }
 
+
 export const findProductByCategoryId = async (category_id: number) => {
     return prisma.category.findUnique({
         where: {
@@ -61,7 +62,7 @@ export const findProductById = async (id: number) => {
     })
 }
 
-export const updateProduct = async (id: number, product: ProductDto, image: string) => {
+export const updateProduct = async (id: number, product: CreateProductInput, image: string) => {
     return prisma.product.update({
         data: {
             name: product.name,

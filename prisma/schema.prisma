@@ -51,31 +51,45 @@ model Product {
   image      String
   category   Category @relation(fields: [categoryId], references: [id])
   categoryId Int
-  Order      Order?   @relation(fields: [orderId], references: [id])
-  orderId    Int?
+
+  orderId Int?
+
+  orderItem OrderItem[]
 }
-
-
 
 model Order {
-  id            Int       @id @default(autoincrement())
-  address       String
-  phone         String
-  name          String
-  purchase_type String
-  created       DateTime  @default(now())
-  Basket        Basket[]
-  product       Product[]
+  id           Int         @id @default(autoincrement())
+  date         DateTime    @default(now())
+  address      String
+  phone        String
+  name         String
+  purchaseType String
+  paymentUrl   String?
+  status       OrderStatus
+  comment      String      @default("")
+  OrderItem    OrderItem[]
 }
 
-model Basket {
-  id       Int   @id @default(autoincrement())
-  order_id Order @relation(fields: [orderId], references: [id])
-  orderId  Int
+model OrderItem {
+  id      Int   @id @default(autoincrement())
+  order   Order @relation(fields: [orderId], references: [id])
+  orderId Int
+
+  product   Product @relation(fields: [productId], references: [id])
+  productId Int
+
+  quantity Int
 }
 
 enum role {
   user
   admin
   none
+}
+
+enum OrderStatus {
+  pending
+  succes
+  errored
+  declined
 }
