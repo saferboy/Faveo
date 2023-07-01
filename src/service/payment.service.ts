@@ -1,5 +1,7 @@
-import { nanoid } from 'nanoid'
-import { BillResponse, CreateBillInput } from '@model/bill'
+// import { nanoid } from "nanoid";
+const nanoid = require('nanoid');
+// const nanoid = import('nanoid');
+import { BillResponse, CreateBillInput } from "@model/bill";
 
 export default class PaymentService {
 
@@ -14,5 +16,4 @@ export default class PaymentService {
 
         return bill
     }
-
 }

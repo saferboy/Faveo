@@ -89,7 +89,7 @@ export const updateUserAccess = async (id: number, access: AccessDetail) => {
   return prisma.user.update({
     data: {
       password: access.password,
-      role: access.role
+      role: 'admin'
     },
     where: {
       id

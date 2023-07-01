@@ -6,7 +6,7 @@ import usersRoutes from "./users"
 import appInfo from "./appInfo"
 import category from "./category"
 import products from "./products"
-// import orders   from "./orders"
+import orders   from "./orders"
 
 const router = Router()
 
@@ -15,6 +15,6 @@ const router = Router()
     .use('/info', appInfo)
     .use('/categories', category)
     .use('/products', products)
-// .use('/orders', orders)
+    .use('/orders', orders)
 
 export default router

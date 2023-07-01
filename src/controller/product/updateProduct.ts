@@ -1,13 +1,13 @@
 import { Request, Response, NextFunction } from "express";
 import { updateProduct, findProductById } from "@service/product.service";
-import { ProductDto } from "@model/product.dto";
+import { CreateProductInput } from "@model/product.dto";
 
 
 export default async (req: Request, res: Response, next: NextFunction) => {
     try {
 
         const id = +req.params.id
-        const prdctbody: ProductDto = req.body
+        const prdctbody: CreateProductInput = req.body
 
         const find = await findProductById(id)
 
