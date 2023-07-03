@@ -15,10 +15,10 @@ export const createAppInfo = async (info: AppInfo) => {
 }
 
 
-
 export const allInfo = async () => {
     return prisma.info.findFirst()
 }
+
 
 export const updateAppInfo = async (info: AppInfo, id: number) => {
     return prisma.info.update({

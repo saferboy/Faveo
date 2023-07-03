@@ -1,3 +1,5 @@
+import { string } from "joi"
+
 export interface CreateOrderInput {
     products: ProductInput[]
     address: string
@@ -33,4 +35,12 @@ export interface OrderResponse {
     paymentUrl: string,
     status: string, // pending for payment. status = ['pending', 'success', 'errored', 'declined']
     comment: string
+}
+
+export interface OrderStatus {
+    // "pending" | "succes" | "errored" | "declined"
+    pending: string,
+    succces: string,
+    errored: string,
+    declined: string
 }

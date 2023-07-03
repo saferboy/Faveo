@@ -10,12 +10,11 @@ export default async (req: Request, res: Response, next: NextFunction) => {
             return {
                 id: order.id,
                 products: order.OrderItem.map((orderItem) => ({
-                    id: orderItem.product.id
+                    id: orderItem.product.id,
+                    categoryId: orderItem.product.category.id,
                 })),
                 date: order.date,
-                purchaseType: order.purchaseType,
                 status: order.status,
-                comment: order.comment
             }
         })
 

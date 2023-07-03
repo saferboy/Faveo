@@ -37,13 +37,25 @@ export default class OrderService {
         })
     }
 
-    static updateStatus(id: number, status: OrderStatus) {
+    static updateStatus(id: number, status: OrderStatus, comment: string) {
         return client.order.update({
             where: {
                 id
             },
             data: {
-                status
+                status,
+                comment
+            },
+            include: {
+                OrderItem: {
+                    include: {
+                        product: {
+                            include: {
+                                category: true
+                            }
+                        }
+                    }
+                }
             }
         })
     }
@@ -116,6 +128,4 @@ export default class OrderService {
     }
 
 }
-
-
 
