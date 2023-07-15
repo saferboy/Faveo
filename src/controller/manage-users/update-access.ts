@@ -26,7 +26,7 @@ import { AccessDetail } from "@model/user.dto";
         return res.status(201).json({
             message: 'User access credentials updated',
             id: olduser.id,
-            enail: olduser.email,
+            email: olduser.email,
             name: olduser.name,
             surname: olduser.surname,
             birthday: olduser.birthday,

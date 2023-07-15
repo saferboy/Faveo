@@ -9,7 +9,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 
         const find = await OrderService.findOrder(id)
 
-        if(!find) {
+        if (!find) {
             return res.status(404).json({
                 massage: `Order not found by id: ${id}`
             })

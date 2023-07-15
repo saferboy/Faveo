@@ -14,7 +14,6 @@ const router = Router()
     .delete('/:id', permission('user'), deleteUsers)
     .put('/:id/details', permission('user'), updateDetails)
     .put('/:id/access',permission('admin'), updateAccess)
-    .put('/:id/access',permission('admin'), updateAccess)
 
 export default router
 

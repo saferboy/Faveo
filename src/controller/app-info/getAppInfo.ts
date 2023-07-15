@@ -7,14 +7,13 @@ export default async (req: Request, res: Response, next: NextFunction) => {
         console.log(info)
 
         if (info) {
-            const mapped =  {
-                
-                    id: info.id,
-                    name: info.name,
-                    location_geo: info.location_geo,
-                    location_address: info.location_address,
-                    phones: info.phones
-                
+            const mapped = {
+                id: info.id,
+                name: info.name,
+                location_geo: info.location_geo,
+                location_address: info.location_address,
+                phones: info.phones
+
             }
 
             return res.status(201).json({
